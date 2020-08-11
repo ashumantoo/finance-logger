@@ -289,3 +289,26 @@ const resourceThree = {
 console.log(resourceOne);
 console.log(resourceTwo);
 console.log(resourceThree);
+/**=====================================================================================
+ *                                 enum IN TYPESCRIPT
+ * =====================================================================================
+ */
+var carBrandType;
+(function (carBrandType) {
+    carBrandType[carBrandType["SUZUKI"] = 0] = "SUZUKI";
+    carBrandType[carBrandType["HUNDAI"] = 1] = "HUNDAI";
+    carBrandType[carBrandType["NISSAN"] = 2] = "NISSAN";
+    carBrandType[carBrandType["BMW"] = 3] = "BMW";
+})(carBrandType || (carBrandType = {}));
+const carOne = {
+    cid: "123",
+    carBrand: carBrandType.HUNDAI,
+    data: "some data"
+};
+const carTwo = {
+    cid: "123",
+    carBrand: carBrandType.NISSAN,
+    data: { name: "mantoo", age: 27 }
+};
+console.log(carOne);
+console.log(carTwo);

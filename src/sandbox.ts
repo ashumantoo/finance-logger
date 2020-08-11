@@ -429,3 +429,35 @@ const resourceThree: Resource<string[]> = {
 console.log(resourceOne);
 console.log(resourceTwo);
 console.log(resourceThree);
+
+/**=====================================================================================
+ *                                 enum IN TYPESCRIPT
+ * =====================================================================================
+ */
+
+enum carBrandType {
+    SUZUKI,
+    HUNDAI,
+    NISSAN,
+    BMW
+}
+interface Car<T> {
+    cid: string;
+    carBrand: carBrandType;
+    data: T
+}
+
+const carOne: Car<string> = {
+    cid: "123",
+    carBrand: carBrandType.HUNDAI,
+    data: "some data"
+}
+
+const carTwo: Car<object> = {
+    cid: "123",
+    carBrand: carBrandType.NISSAN,
+    data: { name: "mantoo", age: 27 }
+}
+
+console.log(carOne);
+console.log(carTwo);
