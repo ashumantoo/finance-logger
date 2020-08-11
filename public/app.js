@@ -9,14 +9,14 @@
 // // }
 // console.log(anchor.href);
 // const form = document.querySelector('form')!;
-var form = document.querySelector('.new-item-form');
+const form = document.querySelector('.new-item-form');
 // console.log(form.children);
 //inputs
-var type = document.querySelector('#type');
-var toform = document.querySelector('#tofrom');
-var details = document.querySelector('#details');
-var amount = document.querySelector('#amount');
-form.addEventListener('submit', function (e) {
+const type = document.querySelector('#type');
+const toform = document.querySelector('#tofrom');
+const details = document.querySelector('#details');
+const amount = document.querySelector('#amount');
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(type.value, toform.value, details.value, amount.valueAsNumber);
 });

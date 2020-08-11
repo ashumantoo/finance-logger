@@ -1,3 +1,5 @@
+import { CreateInvoice } from './classes/Invoice.js';
+
 // const myName = "Ashutosh";
 // console.log(myName);
 // const input = document.querySelectorAll('input');
@@ -269,30 +271,59 @@ logDetailAgain({ name: "hello", age: 23 });
  * =====================================================================================
  */
 
-//classes
-class Invoice {
-    client: string;
-    details: string;
-    amount: number;
+// //classes
+// class Invoice {
+//     // client: string;
+//     // details: string;
+//     // amount: number;
 
-    constructor(c: string, d: string, a: number) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
+//     // readonly client: string;  //only readable - can't able to change
+//     // private details: string;  //read and wirte possible only inside the class
+//     // public amount: number;    //can be accessible any where inside the class or outside
 
-    format() {
-        return `${this.client} owes ${this.amount} for ${this.details}`;
-    }
-}
+//     // constructor(c: string, d: string, a: number) {
+//     //     this.client = c;
+//     //     this.details = d;
+//     //     this.amount = a;
+//     // }
 
-const invoiceOne = new Invoice('mario', 'work on the mario website', 250);
-const invoiceTwo = new Invoice('jakson', 'work on some project website', 300);
+//     //shortest way to creating class using constructor
+//     constructor(
+//         readonly client: string,
+//         private details: string,
+//         public amount: number
+//     ) { }
 
-let invoices: Invoice[] = [];
+//     format() {
+//         return `${this.client} owes ${this.amount} for ${this.details}`;
+//     }
+// }
+
+// const invoiceOne = new Invoice('mario', 'work on the mario website', 250);
+// const invoiceTwo = new Invoice('jakson', 'work on some project website', 300);
+
+// let invoices: Invoice[] = [];
+
+// invoices.push(invoiceOne);
+// invoices.push(invoiceTwo);
+// // invoices.push({client:"somename",details:"writing an assey",amount:200}); this will also not work
+
+// invoices.forEach(inv => {
+//     console.log(inv.client, inv.amount, inv.format());
+// })
+// console.log(invoiceOne, invoiceTwo);
+
+
+const invoiceOne = new CreateInvoice('mario', 'work on the mario website', 250);
+const invoiceTwo = new CreateInvoice('jakson', 'work on some project website', 300);
+
+let invoices: CreateInvoice[] = [];
 
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
 // invoices.push({client:"somename",details:"writing an assey",amount:200}); this will also not work
 
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format());
+})
 console.log(invoiceOne, invoiceTwo);
