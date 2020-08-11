@@ -1,5 +1,6 @@
 import { CreateInvoice } from './classes/Invoice.js';
 import { Payment } from './classes/Payment.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 /**=====================================================================================
  *                                  DOM MANIPULATION IN TS
  * =====================================================================================
@@ -33,6 +34,9 @@ const type = document.querySelector('#type');
 const toform = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+//list template instance
+const ul = document.querySelector('ul');
+const list = new ListTemplate(ul);
 form.addEventListener('submit', (e) => {
     let doc;
     if (type.value === 'invoice') {
@@ -49,4 +53,5 @@ form.addEventListener('submit', (e) => {
     //     amount.valueAsNumber
     // );
     console.log(doc);
+    list.render(doc, type.value, 'end');
 });

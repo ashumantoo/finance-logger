@@ -1,6 +1,7 @@
 import { CreateInvoice } from './classes/Invoice.js';
 import { Payment } from './classes/Payment.js';
 import { HasFormatter } from './interfaces/HasFormatter.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 
 /**=====================================================================================
  *                                  DOM MANIPULATION IN TS
@@ -39,6 +40,10 @@ const toform = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
+//list template instance
+const ul = document.querySelector('ul')!;
+const list = new ListTemplate(ul);
+
 form.addEventListener('submit', (e: Event) => {
     let doc: HasFormatter;
     if (type.value === 'invoice') {
@@ -54,5 +59,5 @@ form.addEventListener('submit', (e: Event) => {
     //     amount.valueAsNumber
     // );
     console.log(doc);
-
+    list.render(doc, type.value, 'end');
 });
