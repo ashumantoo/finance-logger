@@ -337,6 +337,7 @@ console.log(invoiceOne, invoiceTwo);
 interface isPerson {
     name: string;
     age: number;
+    email?: string; //optional propery
     speak(a: string): void;
     spend(a: number): number;
 }
