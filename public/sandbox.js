@@ -243,3 +243,49 @@ const greetPerson = (person) => {
 };
 // greetPerson({name:"mantoo"}) will throw error its not follwing the isPerson interface
 greetPerson(me);
+/**=====================================================================================
+ *                                 GENERICS IN TYPESCRIPT
+ * =====================================================================================
+ */
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docOne = addUID({ name: "mantoo", age: 27 });
+// console.log(docOne.name); //here the function does not know what are the properites are on the passed object
+//Making this function as Generic type - means what ever the properties passed the function
+//as parameter will the object property - but here the problem is this function now accept any type, it could be
+//string,could be a number etc
+const addAnotherUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let anotherDocOne = addAnotherUID({ name: "mantoo", age: 27 });
+// let anotherDocTwo = addAnotherUID('someName'); this will not gives error while it is not an object
+console.log(anotherDocOne.age);
+//To make this function to accept only object
+const someAnotherUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let someDocOne = someAnotherUID({ name: "mantoo", age: 27 });
+// let anotherDocTwo = someAnotherUID('someName'); // now here it will throw the error
+console.log(someDocOne.age);
+const resourceOne = {
+    uid: "123",
+    resourceName: "some resource",
+    data: "some data"
+};
+const resourceTwo = {
+    uid: "123",
+    resourceName: "some resource",
+    data: { name: "mantoo", age: 27 }
+};
+const resourceThree = {
+    uid: "123",
+    resourceName: "some resource",
+    data: ['one', 'two', 'three']
+};
+console.log(resourceOne);
+console.log(resourceTwo);
+console.log(resourceThree);
