@@ -227,3 +227,19 @@ invoices.forEach(inv => {
     console.log(inv.client, inv.amount, inv.format());
 });
 console.log(invoiceOne, invoiceTwo);
+const me = {
+    name: "mantoo",
+    age: 27,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('spent amount is ', amount);
+        return amount;
+    }
+};
+const greetPerson = (person) => {
+    console.log('hello ', person.name);
+};
+// greetPerson({name:"mantoo"}) will throw error its not follwing the isPerson interface
+greetPerson(me);

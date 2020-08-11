@@ -327,3 +327,36 @@ invoices.forEach(inv => {
     console.log(inv.client, inv.amount, inv.format());
 })
 console.log(invoiceOne, invoiceTwo);
+
+
+/**=====================================================================================
+ *                                  INTERFACE IN TYPESCRIPT
+ * =====================================================================================
+ */
+
+interface isPerson {
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a: number): number;
+}
+
+const me: isPerson = {
+    name: "mantoo",
+    age: 27,
+    speak(text: string): void {
+        console.log(text);
+    },
+    spend(amount: number): number {
+        console.log('spent amount is ', amount);
+
+        return amount;
+    }
+};
+
+const greetPerson = (person: isPerson) => {
+    console.log('hello ', person.name);
+};
+
+// greetPerson({name:"mantoo"}) will throw error its not follwing the isPerson interface
+greetPerson(me);
